@@ -1,0 +1,1439 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+     
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    
+<head>   
+   
+
+    <script type="text/javascript" src="http://c.csdnimg.cn/pubfooter/js/tracking.js" charset="utf-8"></script>  
+
+    <script type="text/javascript">
+        var protocol = window.location.protocol;
+        document.write('<script type="text/javascript" src="' + protocol + '//csdnimg.cn/pubfooter/js/repoAddr2.js?v=' + Math.random() + '"></' + 'script>');
+    </script>
+
+  
+ <meta http-equiv="Cache-Control" content="no-siteapp" /><link rel="alternate" media="handheld" href="#" />
+
+    <title>WEKA使用教程(经典教程转载) - Coding for Dreams
+        - 博客频道 - CSDN.NET</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="C++缺点之一，是相对许多语言复杂，而且难学难精。许多人说学习C语言只需一本K&amp;R《C程序设计语言》即可，但C++书籍却是多不胜数。我是从C进入C++，皆是靠阅读自学。在此分享一点学习心得。个人认为，学习C++可分为4个层次：第一层次，C++基础：挑选一本入门书籍，如《C++ Primer》、《C++大学教程》、或Stroustrup撰写的经典《C++程序设计语言》或他一年半前的新作《C+" />
+    <script src="http://static.blog.csdn.net/scripts/jquery.js" type="text/javascript"></script>
+      <script type="text/javascript" src="http://static.blog.csdn.net/scripts/jquery-version.js"></script>
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/ad.js?v=1.1"></script>
+        <!--new top-->
+               <link rel="stylesheet" href="http://c.csdnimg.cn/public/common/toolbar/css/index.css">        <!--new top-->
+    
+      <!-- ad begin -->
+         <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/tracking.js"></script>
+    <!-- ad end-->
+
+    <link rel="Stylesheet" type="text/css" href="http://static.blog.csdn.net/skin/light_blue/css/style.css?v=1.1" />
+    <link id="RSSLink" title="RSS" type="application/rss+xml" rel="alternate" href="/yangliuy/rss/list" />
+    <link rel="shortcut icon" href="http://c.csdnimg.cn/public/favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="http://static.blog.csdn.net/scripts/SyntaxHighlighter/styles/default.css" />
+ 
+
+
+</head>
+<body>
+    <!-- 广告位开始 -->
+        <ins data-revive-zoneid="149" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+
+    
+   
+      <!--new top-->
+    <script id="toolbar-tpl-scriptId" fixed="true" prod="blog" skin="black" src="http://c.csdnimg.cn/public/common/toolbar/js/html.js" type="text/javascript"></script>
+     <!--new top-->
+    <div id="container">
+        <div id="header">
+    <div class="header">
+        <div id="blog_title">
+            <h2>
+                <a href="http://blog.csdn.net/yangliuy">Coding for Dreams</a></h2>
+            <h3>Algorithm, NLP/IR, Data Mining, Machine Learning, Math</h3>
+            <div class="clear">
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        
+     
+    </div>
+</div>
+<div id="navigator">
+    <div class="navigator_bg">
+    </div>
+    <div class="navigator">
+        <ul>
+            
+                <li id="btnContents"><a href="http://blog.csdn.net/yangliuy?viewmode=contents"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_mulu'])">
+                    <img src="http://static.blog.csdn.net/images/ico_list.gif">目录视图</span></a></li>
+                <li id="btnView"><a href="http://blog.csdn.net/yangliuy?viewmode=list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_zhaiyao'])">
+                    <img src="http://static.blog.csdn.net/images/ico_summary.gif">摘要视图</span></a></li>
+                <li id="btnRss"><a href="http://blog.csdn.net/yangliuy/rss/list"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_RSS'])">
+                    <img src="http://static.blog.csdn.net/images/ico_rss.gif">订阅</span></a></li>                
+            
+
+            </ul>
+    </div>
+</div>
+<script type="text/javascript">
+    var username = "yangliuy";
+    var _blogger = username;
+    var blog_address = "http://blog.csdn.net/yangliuy";
+    var static_host = "http://static.blog.csdn.net";
+    var currentUserName = "";  
+</script>
+
+        <div id="body">
+            <div id="main">
+                <div class="main">
+                        <div class="ad_class">
+<div class="notice tracking-ad" data-mod='popu_3' > 
+
+<a href="http://blog.csdn.net/winner.html">
+<font color=red>【1024程序员节】获奖结果公布
+</font></a>
+&nbsp;&nbsp;&nbsp;
+
+<a href="http://blog.csdn.net/PK.html">
+<font color=blue>【观点】有了深度学习，你还学传统机器学习算法么？
+</font></a>
+&nbsp;&nbsp;&nbsp;
+<a href="http://lib.csdn.net/base/reactnative">
+<font color=red>【资源库】火爆了的React Native都在研究什么
+</font></a>
+
+</font></a>
+</div>                        </div>
+                        
+
+
+<!-- 广告位开始 -->
+<ins data-revive-zoneid="72" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+<!-- 广告位结束 -->
+
+  
+<link href="http://static.blog.csdn.net/css/comment1.css" type="text/css" rel="stylesheet" />
+<link href="http://static.blog.csdn.net/css/style1.css" type="text/css" rel="stylesheet" />
+<script language='JavaScript' type='text/javascript' src='http://download.csdn.net/js/jquery.cookie.js'></script>
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/search-service/main.js"></script>
+<link rel="stylesheet" href="http://static.blog.csdn.net/public/res-min/markdown_views.css?v=1.0" />
+<link rel="stylesheet" href="http://static.blog.csdn.net/css/category.css?v=1.0" />
+<script type="text/javascript" src="http://static.blog.csdn.net/public/res/bower-libs/MathJax/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/web-storage-cache.min.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/replace.min.js"></script>
+
+
+
+
+  <script type="text/ecmascript">
+      window.quickReplyflag = true;
+           
+            var isBole = false;
+            
+          
+    </script>
+<div id="article_details" class="details">
+    <div class="article_title">   
+         <span class="ico ico_type_Repost"></span>
+
+
+    <h1>
+        <span class="link_title"><a href="/yangliuy/article/details/7589306">
+        WEKA使用教程(经典教程转载)            
+        </a></span>
+    </h1>
+</div>
+
+   
+
+        <div class="article_manage clearfix">
+        <div class="article_l">
+            <span class="link_categories">
+            标签：
+              <a href='http://www.csdn.net/tag/lift' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">lift</a><a href='http://www.csdn.net/tag/%e7%ae%97%e6%b3%95' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">算法</a><a href='http://www.csdn.net/tag/csv' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">csv</a><a href='http://www.csdn.net/tag/%e6%95%b0%e6%8d%ae%e6%8c%96%e6%8e%98' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">数据挖掘</a><a href='http://www.csdn.net/tag/class' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">class</a><a href='http://www.csdn.net/tag/%e4%bb%bb%e5%8a%a1' target=_blank onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_tag']);">任务</a>
+            </span>
+        </div>
+        <div class="article_r">
+            <span class="link_postdate">2012-05-22 01:16</span>
+            <span class="link_view" title="阅读次数">86875人阅读</span>
+            <span class="link_comments" title="评论次数"> <a href="#comments" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_pinglun'])">评论</a>(8)</span>
+            <span class="link_collect tracking-ad" data-mod="popu_171"> <a href="javascript:void(0);" onclick="javascript:collectArticle('WEKA使用教程(经典教程转载)','7589306');return false;" title="收藏">收藏</a></span>
+             <span class="link_report"> <a href="#report" onclick="javascript:report(7589306,2);return false;" title="举报">举报</a></span>
+
+        </div>
+    </div>
+    <div class="embody"  style="display:none" id="embody">
+        <span class="embody_t">本文章已收录于：</span>
+        <div class="embody_c" id="lib" value="{&quot;err&quot;:0,&quot;msg&quot;:&quot;ok&quot;,&quot;data&quot;:[]}"></div>
+    </div>
+    <style type="text/css">        
+            .embody{
+                padding:10px 10px 10px;
+                margin:0 -20px;
+                border-bottom:solid 1px #ededed;                
+            }
+            .embody_b{
+                margin:0 ;
+                padding:10px 0;
+            }
+            .embody .embody_t,.embody .embody_c{
+                display: inline-block;
+                margin-right:10px;
+            }
+            .embody_t{
+                font-size: 12px;
+                color:#999;
+            }
+            .embody_c{
+                font-size: 12px;
+            }
+            .embody_c img,.embody_c em{
+                display: inline-block;
+                vertical-align: middle;               
+            }
+             .embody_c img{               
+                width:30px;
+                height:30px;
+            }
+            .embody_c em{
+                margin: 0 20px 0 10px;
+                color:#333;
+                font-style: normal;
+            }
+    </style>
+    <script  type="text/javascript">
+        $(function () {
+            try
+            {
+                var lib = eval("("+$("#lib").attr("value")+")");
+                var html = "";
+                if (lib.err == 0) {
+                    $.each(lib.data, function (i) {
+                        var obj = lib.data[i];
+                        //html += '<img src="' + obj.logo + '"/>' + obj.name + "&nbsp;&nbsp;";
+                        html += ' <a href="' + obj.url + '" target="_blank">';
+                        html += ' <img src="' + obj.logo + '">';
+                        html += ' <em><b>' + obj.name + '</b></em>';
+                        html += ' </a>';
+                    });
+                    if (html != "") {
+                        setTimeout(function () {
+                            $("#lib").html(html);                      
+                            $("#embody").show();
+                        }, 100);
+                    }
+                }      
+            } catch (err)
+            { }
+            
+        });
+    </script>
+    <script   type="text/javascript" src="http://static.blog.csdn.net/scripts/category.js"></script>  
+
+  
+
+  
+  
+     
+
+<div id="article_content" class="article_content">
+
+<p align="center"><a href="http://bbs.wekacn.org/viewforum.php?f=2"><span style="color:#006699"><strong>WEKA使用</strong></span></a><u><span style="color:#006699"><strong>教程</strong></span></u></p>
+<p><strong>目录</strong> <br>
+1. 简介<br>
+2. 数据&#26684;式<br>
+3.数据准备<br>
+4. 关联规则（购物篮分析）<br>
+5. 分类与回归<br>
+6. 聚类分析 </p>
+<p><strong>1. 简介</strong> <br>
+<br>
+WEKA的全名是怀卡托智能分析环境（Waikato Environment for Knowledge Analysis），它的源代码可通过<a href="http://www.cs.waikato.ac.nz/ml/weka" target="_blank"><span style="color:#006699">http://www.cs.waikato.ac.nz/ml/weka</span></a>得到。同时weka也是新西兰的一种鸟名，而WEKA的主要开发者来自新西兰。<br>
+<br>
+WEKA作为一个公开的数据挖掘工作平台，集合了大量能承担数据挖掘任务的机器学习算法，包括对数据进行预处理，分类，回归、聚类、关联规则以及在新的交互式界面上的可视化。<br>
+如果想自己实现数据挖掘算法的话，可以看一看weka的接口文档。在weka中集成自己的算法甚至借鉴它的方法自己实现可视化工具并不是件很困难的事情。 <br>
+<br>
+<strong><span style="color:red">2005</span><span style="color:red">年</span><span style="color:red">8</span><span style="color:red">月，在第</span><span style="color:red">11</span><span style="color:red">届</span><span style="color:red">ACM SIGKDD</span><span style="color:red">国际会议上，怀卡托大学的</span><span style="color:red">Weka</span><span style="color:red">小组荣获了数据挖掘和知识探索领域的最高服务奖，</span><span style="color:red">Weka</span><span style="color:red">系统得到了广泛的认可，被誉为数据挖掘和机器学习历史上的里程碑</span></strong>，是现今最完备的数据挖掘工具之一（已有11年的发展历史）。Weka的每月下载次数已超过万次。<br>
+<br>
+--整理自<a href="http://www.china-pub.com/computers/common/info.asp?id=29304" target="_blank"><span style="color:#006699">http://www.china-pub.com/computers/common/info.asp?id=29304</span></a><br>
+<br>
+<strong>2. 数据&#26684;式</strong> <br>
+<br>
+巧妇难为无米之炊。首先我们来看看WEKA所用的数据应是什么样的&#26684;式。 <br>
+跟很多电子表&#26684;或数据分析软件一样，WEKA所处理的数据集是图1那样的一个二维的表&#26684;。 <br>
+<img alt="" src="http://my.csdn.net/uploads/201205/22/1337620744_7691.png"><br>
+图1 <a href="http://wekacn.b.lunqun.com/up/m145/45/78/45789/Mon_0609/5953_1300_678021321d6fe25.jpg" target="_blank">
+<span style="color:#006699">新窗口打开</span></a> <br>
+这里我们要介绍一下WEKA中的术语。表&#26684;里的一个横行称作一个实例（Instance），相当于统计学中的一个样本，或者数据库中的一条记录。竖行称作一个属性（Attrbute），相当于统计学中的一个变量，或者数据库中的一个字段。这样一个表&#26684;，或者叫数据集，在WEKA看来，呈现了属性之间的一种关系(Relation)。图1中一共有14个实例，5个属性，关系名称为“weather”。<br>
+<br>
+WEKA存储数据的&#26684;式是ARFF（Attribute-Relation File Format）文件，这是一种ASCII文本文件。图1所示的二维表&#26684;存储在如下的ARFF文件中。这也就是WEKA自带的“weather.arff”文件，在WEKA安装目录的“data”子目录下可以找到。</p>
+<p><img src="http://my.csdn.net/uploads/201205/22/1337620980_8854.png" alt=""><br>
+需要注意的是，在Windows记事本打开这个文件时，可能会因为回车符定义不一致而导致分行不正常。推荐使用<a name="OLE_LINK37">UltraEdit</a>这样的字符编辑软件察看ARFF文件的内容。<br>
+<br>
+下面我们来对这个文件的内容进行说明。 <br>
+识别ARFF文件的重要依据是分行，因此不能在这种文件里随意的断行。空行（或全是空&#26684;的行）将被忽略。 <br>
+以“%”开始的行是注释，WEKA将忽略这些行。如果你看到的“weather.arff”文件多了或少了些“%”开始的行，是没有影响的。 <br>
+除去注释后，整个ARFF文件可以分为两个部分。第一部分给出了头信息（Head information），包括了对关系的声明和对属性的声明。第二部分给出了数据信息（Data information），即数据集中给出的数据。从“@data”标记开始，后面的就是数据信息了。<br>
+<br>
+<span style="color:blue">关系声明</span> <br>
+关系名称在ARFF文件的第一个有效行来定义，&#26684;式为 <br>
+<span style="color:green">@relation &lt;relation-name&gt;</span> <br>
+&lt;relation-name&gt;是一个字符串。如果这个字符串包含空&#26684;，它必须加上引号（指英文标点的单引号或双引号）。 <br>
+<br>
+<span style="color:blue">属性声明</span> <br>
+属性声明用一列以“@attribute”开头的语句表示。数据集中的每一个属性都有它对应的“@attribute”语句，来定义它的属性名称和数据类型。 <br>
+这些声明语句的顺序很重要。首先它表明了该项属性在数据部分的位置。例如，“humidity”是第三个被声明的属性，这说明数据部分那些被逗号分开的列中，第三列数据 85 90 86 96 ... 是相应的“humidity”&#20540;。其次，<strong><span style="color:red">最后一个声明的属性被称作</span><span style="color:red">class</span><span style="color:red">属性，在分类或回归任务中，它是默认的目标变量。</span></strong><br>
+属性声明的&#26684;式为 <br>
+<span style="color:green">@attribute &lt;attribute-name&gt; &lt;datatype&gt;</span> <br>
+其中&lt;attribute-name&gt;是必须以字母开头的字符串。和关系名称一样，如果这个字符串包含空&#26684;，它必须加上引号。 <br>
+WEKA支持的&lt;datatype&gt;有四种，分别是 <br>
+numeric-------------------------数&#20540;型 <br>
+&lt;nominal-specification&gt;-----分类（nominal）型 <br>
+string----------------------------字符串型 <br>
+date [&lt;date-format&gt;]--------日期和时间型 <br>
+其中&lt;nominal-specification&gt; 和&lt;date-format&gt; 将在下面说明。还可以使用两个类型“integer”和“real”，但是WEKA把它们都当作“numeric”看待。注意“integer”，“real”，“numeric”，“date”，“string”这些关键字是区分大小写的，而“relation”“attribute ”和“date”则不区分。<br>
+<br>
+<span style="color:blue">数&#20540;属性</span> <br>
+数&#20540;型属性可以是整数或者实数，但WEKA把它们都当作实数看待。 <br>
+<br>
+<span style="color:blue">分类属性</span> <br>
+分类属性由&lt;nominal-specification&gt;列出一系列可能的类别名称并放在花括号中：{&lt;nominal-name1&gt;, &lt;nominal-name2&gt;, &lt;nominal-name3&gt;, ...} 。数据集中该属性的&#20540;只能是其中一种类别。<br>
+例如如下的属性声明说明“outlook”属性有三种类别：“sunny”，“ overcast”和“rainy”。而数据集中每个实例对应的“outlook”&#20540;必是这三者之一。<br>
+<span style="color:green">@attribute outlook {sunny, overcast, rainy}</span> <br>
+如果类别名称带有空&#26684;，仍需要将之放入引号中。 <br>
+<br>
+<span style="color:blue">字符串属性</span> <br>
+字符串属性中可以包含任意的文本。这种类型的属性在文本挖掘中非常有用。 <br>
+示例： <br>
+<span style="color:green">@ATTRIBUTE LCC string</span> <br>
+<br>
+<span style="color:blue">日期和时间属性</span> <br>
+日期和时间属性统一用“date”类型表示，它的&#26684;式是 <br>
+<span style="color:green">@attribute &lt;name&gt; date [&lt;date-format&gt;]</span> <br>
+其中&lt;name&gt;是这个属性的名称，&lt;date-format&gt;是一个字符串，来规定该怎样解析和显示日期或时间的&#26684;式，默认的字符串是ISO-8601所给的日期时间组合&#26684;式“<em>yyyy-MM-dd</em>T<em>HH:mm:ss</em>”。<br>
+数据信息部分表达日期的字符串必须符合声明中规定的&#26684;式要求（下文有例子）。 <br>
+<br>
+<span style="color:blue">数据信息</span> <br>
+数据信息中“@data”标记独占一行，剩下的是各个实例的数据。 <br>
+<br>
+每个实例占一行。实例的各属性&#20540;用逗号“,”隔开。<strong><span style="color:red">如果某个属性的&#20540;是缺失&#20540;（</span><span style="color:red">missing value</span><span style="color:red">），用问号</span><span style="color:red">“?”</span><span style="color:red">表示，且这个问号不能省略。例如：</span><span style="color:red"><br>
+</span></strong><span style="color:green">@data </span><span style="color:green"><br>
+sunny,85,85,FALSE,no </span><br>
+?,78,90,?,yes <br>
+<br>
+<br>
+字符串属性和分类属性的&#20540;是区分大小写的。若&#20540;中含有空&#26684;，必须被引号括起来。例如： <br>
+<span style="color:green">@relation LCCvsLCSH </span><span style="color:green"><br>
+&nbsp;&nbsp;@attribute LCC string </span><br>
+&nbsp;&nbsp;@attribute LCSH string <br>
+&nbsp;&nbsp;@data <br>
+&nbsp;&nbsp;AG5, 'Encyclopedias and dictionaries.;Twentieth century.' <br>
+&nbsp;&nbsp;AS262, 'Science -- Soviet Union -- History.' <br>
+<br>
+<br>
+日期属性的&#20540;必须与属性声明中给定的相一致。例如： <br>
+<span style="color:green">@RELATION Timestamps </span><span style="color:green"><br>
+&nbsp;&nbsp;@ATTRIBUTE timestamp DATE &quot;yyyy-MM-dd HH:mm:ss&quot; </span><br>
+&nbsp;&nbsp;@DATA <br>
+&nbsp;&nbsp;&quot;2001-04-03 12:12:12&quot; <br>
+&nbsp;&nbsp;&quot;2001-05-03 12:59:55&quot; <br>
+<br>
+<span style="color:blue">稀疏数据</span> <br>
+有的时候数据集中含有大量的0&#20540;（比如购物篮分析），这个时候用稀疏&#26684;式的数据存贮更加省空间。 <br>
+稀疏&#26684;式是针对数据信息中某个实例的表示而言，不需要修改ARFF文件的其它部分。看如下的数据： <br>
+<span style="color:green">@data </span><span style="color:green"><br>
+&nbsp;&nbsp;0, X, 0, Y, &quot;class A&quot; </span><br>
+&nbsp;&nbsp;0, 0, W, 0, &quot;class B&quot; <br>
+用稀疏&#26684;式表达的话就是 <br>
+<span style="color:green">@data </span><span style="color:green"><br>
+&nbsp;&nbsp;{1 X, 3 Y, 4 &quot;class A&quot;} </span><br>
+&nbsp;&nbsp;{2 W, 4 &quot;class B&quot;} <br>
+每个实例用花括号括起来。实例中每一个非0的属性&#20540;用&lt;index&gt; &lt;空&#26684;&gt; &lt;value&gt;表示。&lt;index&gt;是属性的序号，从0开始计；&lt;value&gt;是属性&#20540;。属性&#20540;之间仍用逗号隔开。这里每个实例的数&#20540;必须按属性的顺序来写，如<span style="color:green"> {1 X, 3 Y, 4 &quot;class A&quot;}</span>，不能写成<span style="color:green">{3 Y, 1 X, 4 &quot;class A&quot;}</span>。<br>
+<span style="color:red">注意在稀疏&#26684;式中没有注明的属性&#20540;不是缺失&#20540;，而是</span><span style="color:red">0</span><span style="color:red">&#20540;。若要表示缺失&#20540;必须显式的用问号表示出来。</span><span style="color:red"><br>
+</span><br>
+<span style="color:blue">Relational</span><span style="color:blue">型属性</span> <br>
+在WEKA 3.5版中增加了一种属性类型叫做Relational，有了这种类型我们可以像关系型数据库那样处理多个维度了。但是这种类型目前还不见广泛应用，暂不作介绍。<br>
+<br>
+--整理自<a href="http://www.cs.waikato.ac.nz/~ml/weka/arff.html" target="_blank"><span style="color:#006699">http://www.cs.waikato.ac.nz/~ml/weka/arff.html</span></a> 和<a href="http://weka.sourceforge.net/wekadoc/index.php/en:ARFF_%283.5.3%29" target="_blank"><span style="color:#006699">http://weka.sourceforge.net/wekadoc/index.php/en:ARFF_%283.5.3%29</span></a></p>
+<p><strong>3.数据准备</strong> <br>
+<br>
+使用WEKA作数据挖掘，面临的第一个问题往往是我们的数据不是ARFF&#26684;式的。幸好，WEKA还提供了<span style="color:red">对</span><span style="color:red">CSV</span><span style="color:red">文件的支持</span>，而这种&#26684;式是被很多其他软件所支持的。此外，WEKA还提供了通过JDBC访问数据库的功能。<br>
+在这一节里，我们先以Excel和Matlab为例，说明如何获得CSV文件。然后我们将知道CSV文件如何转化成ARFF文件，毕竟后者才是WEKA支持得最好的文件&#26684;式。<span style="color:red">面对一个</span><span style="color:red">ARFF</span><span style="color:red">文件，我们仍有一些预处理要做，才能进行挖掘任务。</span><span style="color:red"><br>
+</span><br>
+<span style="color:blue">.* -&gt; .csv</span> <br>
+我们给出一个CSV文件的例子（<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/data/bank-data.csv" target="_blank"><span style="color:#006699">bank-data.csv</span></a>）。用UltraEdit打开它可以看到，这种&#26684;式也是一种逗号分割数据的文本文件,储存了一个二维表&#26684;。<br>
+<br>
+Excel的XLS文件可以让多个二维表&#26684;放到不同的工作表（Sheet）中，我们只能把每个工作表存成不同的CSV文件。打开一个XLS文件并切换到需要转换的工作表，另存为CSV类型，点“确定”、“是”忽略提示即可完成操作。<br>
+<br>
+在Matlab中的二维表&#26684;是一个矩阵，我们通过这条命令把一个矩阵存成CSV&#26684;式。 <br>
+<span style="color:green">csvwrite('filename',matrixname)</span> <br>
+需要注意的是，Matllab给出的CSV文件往往没有属性名（Excel给出的也有可能没有）。<strong><span style="color:red">而</span><span style="color:red">WEKA</span><span style="color:red">必须从</span><span style="color:red">CSV</span><span style="color:red">文件的第一行读取属性名，否则就会把第一行的各属性&#20540;读成变量名。</span></strong>因此我们对于Matllab给出的CSV文件需要用UltraEdit打开，手工添加一行属性名。注意属性名的个数要跟数据属性的个数一致，仍用逗号隔开。<br>
+<br>
+<span style="color:blue">.csv -&gt; .arff</span> <br>
+将CSV转换为ARFF最迅捷的办法是使用WEKA所带的命令行工具。 <br>
+运行WEKA的主程序，出现GUI后可以点击下方按钮进入相应的模块。我们点击进入“Simple CLI”模块提供的命令行功能。在新窗口的最下方（上方是不能写字的）输入框写上<br>
+<span style="color:green">java weka.core.converters.CSVLoader filename.csv &gt; filename.arff</span><br>
+即可完成转换。 <br>
+在WEKA 3.5中提供了一个“Arff Viewer”模块，我们可以用它打开一个CSV文件将进行浏览，然后另存为ARFF文件。 <br>
+进入“Exploer”模块，从上方的按钮中打开CSV文件然后另存为ARFF文件亦可。 <br>
+<br>
+<span style="color:blue">“Exploer”</span><span style="color:blue">界面</span> <br>
+我们应该注意到，“Exploer”还提供了很多功能，实际上可以说这是WEKA使用最多的模块。现在我们先来熟悉它的界面，然后利用它对数据进行预处理。 <br>
+<img alt="" src="http://my.csdn.net/uploads/201205/22/1337620751_1161.png"><br>
+图2 <a href="http://wekacn.b.lunqun.com/up/m145/45/78/45789/Mon_0609/5951_1300_474ee42215640e0.jpg" target="_blank">
+<span style="color:#006699">新窗口打开</span></a> <br>
+图2显示的是使用3.5版&quot;Exploer&quot;打开&quot;bank-data.csv&quot;的情况。我们根据不同的功能把这个界面分成8个区域。 <br>
+区域1的几个选项卡是用来切换不同的挖掘任务面板。这一节用到的只有“Preprocess”，其他面板的功能将在以后介绍。 <br>
+区域2是一些常用按钮。包括打开数据，保存及编辑功能。我们在这里把&quot;bank-data.csv&quot;另存为&quot;bank-data.arff&quot;。 <br>
+在区域3中“Choose”某个“Filter”，可以实现筛选数据或者对数据进行某种变换。数据预处理主要就利用它来实现。 <br>
+区域4展示了数据集的一些基本情况。 <br>
+区域5中列出了数据集的所有属性。勾选一些属性并“Remove”就可以删除它们，删除后还可以利用区域2的“Undo”按钮找回。区域5上方的一排按钮是用来实现快速勾选的。<br>
+在区域5中选中某个属性，则区域6中有关于这个属性的摘要。注意对于数&#20540;属性和分类属性，摘要的方式是不一样的。图中显示的是对数&#20540;属性“income”的摘要。 <br>
+区域7是区域5中选中属性的直方图。若数据集的最后一个属性（我们说过这是分类或回归任务的默认目标变量）是分类变量（这里的“pep”正好是），直方图中的每个长方形就会按照该变量的比例分成不同颜色的段。要想换个分段的依据，在区域7上方的下拉框中选个不同的分类属性就可以了。下拉框里选上“No Class”或者一个数&#20540;属性会变成黑白的直方图。<br>
+区域8是状态栏，可以查看Log以判断是否有错。右边的weka鸟在动的话说明WEKA正在执行挖掘任务。右键点击状态栏还可以执行JAVA内存的垃圾回收。 <br>
+<br>
+<span style="color:blue">预处理</span> <br>
+bank-data数据各属性的含义如下： <br>
+<span style="color:skyblue">id</span> a unique identification number <br>
+<span style="color:skyblue">age</span> age of customer in years (numeric) <br>
+<span style="color:skyblue">sex</span> MALE / FEMALE <br>
+<span style="color:skyblue">region</span> inner_city/rural/suburban/town <br>
+<span style="color:skyblue">income</span> income of customer (numeric) <br>
+<span style="color:skyblue">married</span> is the customer married (YES/NO) <br>
+<span style="color:skyblue">children</span> number of children (numeric) <br>
+<span style="color:skyblue">car</span> does the customer own a car (YES/NO) <br>
+<span style="color:skyblue">save_acct </span>does the customer have a saving account (YES/NO)<br>
+<span style="color:skyblue">current_acct</span> does the customer have a current account (YES/NO)<br>
+<span style="color:skyblue">mortgage</span> does the customer have a mortgage (YES/NO)<br>
+<span style="color:skyblue">pep</span> did the customer buy a PEP (Personal Equity Plan) after the last mailing (YES/NO)<br>
+<br>
+通常对于数据挖掘任务来说，ID这样的信息是无用的，我们将之删除。在区域5勾选属性“id”，并点击“Remove”。将新的数据集保存一次，并用UltraEdit打开这个ARFF文件。我们发现，在属性声明部分，WEKA已经为每个属性选好了合适的类型。<br>
+<br>
+我们知道，有些算法，只能处理所有的属性都是分类型的情况。这时候我们就需要对数&#20540;型的属性进行离散化。在这个数据集中有3个变量是数&#20540;型的，分别是“age”，“income”和“children”。<br>
+其中“children”只有4个取&#20540;：0，1，2，3。这时我们在UltraEdit中直接修改ARFF文件，把 <br>
+<span style="color:green">@attribute children numeric</span> <br>
+改为 <br>
+<span style="color:green">@attribute children {0,1,2,3}</span> <br>
+就可以了。 <br>
+在“Explorer”中重新打开“bank-data.arff”，看看选中“children”属性后，区域6那里显示的“Type”是不是变成“Nominal”了？<br>
+<br>
+“age”和“income”的离散化我们需要借助WEKA中名为“Discretize”的Filter来完成。在区域2中点“Choose”，出现一棵“Filter树”，逐级找到“weka.filters.unsupervised.attribute.Discretize”，点击。若无法关闭这个树，在树之外的地方点击“Explorer”面板即可。<br>
+现在“Choose”旁边的文本框应该显示“Discretize -B 10 -M -0.1 -R first-last”。 点击这个文本框会弹出新窗口以修改离散化的参数。<br>
+我们不打算对所有的属性离散化，只是针对对第1个和第4个属性（见区域5属性名左边的数字），故把attributeIndices右边改成“1,4”。计划把这两个属性都分成3段，于是把“bins”改成“3”。其它框里不用更改，关于它们的意思可以点“More”查看。点“OK”回到“Explorer”，可以看到“age”和“income”已经被离散化成分类型的属性。若想放弃离散化可以点区域2的“Undo”。<br>
+如果对“&quot;(-inf-34.333333]&quot;”这样晦涩的标识不满，我们可以用UltraEdit打开保存后的ARFF文件，把所有的“'\'(-inf-34.333333]\''”替换成“0_34”。其它标识做类&#20284;地手动替换。<br>
+<br>
+经过上述操作得到的数据集我们保存为<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/data/bank-data-final.arff" target="_blank"><span style="color:#006699">bank-data-final.arff</span></a>。<br>
+<br>
+----整理自<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/preprocess.html" target="_blank"><span style="color:#006699">http://maya.cs.depaul.edu/~classes/ect584/WEKA/preprocess.html</span></a><br>
+<br>
+<br>
+<strong>4. 关联规则（购物篮分析）</strong> <br>
+<span style="color:red">注意</span>：目前，WEKA的关联规则分析功能仅能用来作示范，不适合用来挖掘大型数据集。 <br>
+<br>
+我们打算对前面的“bank-data”数据作关联规则的分析。用“Explorer”打开“bank-data-final.arff”后，切换到“Associate”选项卡。默认关联规则分析是用Apriori算法，我们就用这个算法，但是点“Choose”右边的文本框修改默认的参数，弹出的窗口中点“More”可以看到各参数的说明。<br>
+<br>
+<span style="color:blue">背景知识</span> <br>
+首先我们来温习一下Apriori的有关知识。对于一条关联规则L-&gt;R，我们常用支持度（Support）和置信度（Confidence）来衡量它的重要性。规则的支持度是用来估计在一个购物篮中同时观察到L和R的概率<span style="color:green">P(L,R)</span>，而规则的置信度是估计购物栏中出现了L时也出会现R的条件概率<span style="color:green">P(R|L)</span>。关联规则的目标一般是产生支持度和置信度都较高的规则。<br>
+有几个类&#20284;的度量代替置信度来衡量规则的关联程度，它们分别是 <br>
+Lift（提升度？）： <span style="color:green">P(L,R)/(P(L)P(R)) </span><br>
+Lift=1时表示L和R独立。这个数越大，越表明L和R存在在一个购物篮中不是偶然现象。 <br>
+Leverage（不知道怎么翻译）：<span style="color:green">P(L,R)-P(L)P(R) </span><br>
+它和Lift的含义差不多。Leverage=0时L和R独立，Leverage越大L和R的关系越密切。 <br>
+Conviction（更不知道译了）：<span style="color:green">P(L)P(!R)/P(L,!R) </span>（!R表示R没有发生）<br>
+Conviction也是用来衡量L和R的独立性。从它和lift的关系（对R取反，代入Lift公式后求倒数）可以看出，我们也希望这个&#20540;越大越好。 <br>
+&#20540;得注意的是，用Lift和Leverage作标准时，L和R是对称的，Confidence和Conviction则不然。 <br>
+<br>
+<span style="color:blue">参数设置</span> <br>
+现在我们计划挖掘出支持度在10%到100%之间，并且lift&#20540;超过1.5且lift&#20540;排在前100位的那些关联规则。我们把“lowerBoundMinSupport”和“upperBoundMinSupport”分别设为0.1和1，“metricType”设为lift，“minMetric”设为1.5，“numRules”设为100。其他选项保持默认即可。“OK” 之后在“Explorer”中点击“Start”开始运行算法，在右边窗口显示数据集摘要和挖掘结果。<br>
+<br>
+下面是挖掘出来的lift排前5的规则。 <br>
+<span style="color:green">Best rules found: </span><span style="color:green"><br>
+1. age=52_max save_act=YES current_act=YES 113 ==&gt; income=43759_max 61 conf:(0.54) &lt; lift:(4.05)&gt; lev:(0.0</span> [45] conv:(1.85)<br>
+&nbsp;&nbsp;2. income=43759_max 80 ==&gt; age=52_max save_act=YES current_act=YES 61 conf:(0.76) &lt; lift:(4.05)&gt; lev:(0.0 [45] conv:(3.25)<br>
+&nbsp;&nbsp;3. income=43759_max current_act=YES 63 ==&gt; age=52_max save_act=YES 61 conf:(0.97) &lt; lift:(3.85)&gt; lev:(0.0 [45] conv:(15.72)<br>
+&nbsp;&nbsp;4. age=52_max save_act=YES 151 ==&gt; income=43759_max current_act=YES 61 conf:(0.4) &lt; lift:(3.85)&gt; lev:(0.0 [45] conv:(1.49)<br>
+&nbsp;&nbsp;5. age=52_max save_act=YES 151 ==&gt; income=43759_max 76 conf:(0.5) &lt; lift:(3.77)&gt; lev:(0.09) [55] conv:(1.72)<br>
+对于挖掘出的每条规则，WEKA列出了它们关联程度的四项指标。 <br>
+<br>
+<span style="color:blue">命令行方式</span> <br>
+我们也可以利用命令行来完成挖掘任务，在“Simlpe CLI”模块中输入如下&#26684;式的命令： <br>
+<span style="color:green">java weka.associations.Apriori options -t directory-path\bank-data-final.arff</span><br>
+即可完成Apriori算法。注意，“-t”参数后的文件路径中不能含有空&#26684;。 <br>
+在前面我们使用的option为 <br>
+<span style="color:green">-N 100 -T 1 -C 1.5 -D 0.05 -U 1.0 -M 0.1 -S -1.0 </span>
+命令行中使用这些参数得到的结果和前面利用GUI得到的一样。 <br>
+我们还可以加上“- I”参数，得到不同项数的频繁项集。我用的命令如下： <br>
+<span style="color:green">java weka.associations.Apriori -N 100 -T 1 -C 1.5 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -I -t d:\weka\bank-data-final.arff</span><br>
+挖掘结果在上方显示，应是<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/data/bank-data-ar2.txt" target="_blank"><span style="color:#800080">这个文件</span></a>的样子。<br>
+<br>
+----整理自<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/associate.html" target="_blank"><span style="color:#006699">http://maya.cs.depaul.edu/~classes/ect584/WEKA/associate.html</span></a></p>
+<p><strong>5. 分类与回归</strong> <br>
+<br>
+<span style="color:blue">背景知识</span> <br>
+WEKA把分类(Classification)和回归(Regression)都放在“Classify”选项卡中，这是有原因的。 <br>
+在这两个任务中，都有一个目标属性（输出变量）。我们希望根据一个样本(WEKA中称作实例)的一组特征（输入变量），对目标进行预测。为了实现这一目的，我们需要有一个训练数据集，这个数据集中每个实例的输入和输出都是已知的。观察训练集中的实例，可以建立起预测的模型。有了这个模型，我们就可以新的输出未知的实例进行预测了。衡量模型的好坏就在于预测的准确程度。<br>
+在WEKA中，待预测的目标（输出）被称作Class属性，这应该是来自分类任务的“类”。<strong><span style="color:red">一般的，若</span><span style="color:red">Class</span><span style="color:red">属性是分类型时我们的任务才叫分类，</span><span style="color:red">Class</span><span style="color:red">属性是数&#20540;型时我们的任务叫回归。</span><span style="color:red"><br>
+</span></strong><br>
+<span style="color:blue">选择算法</span> <br>
+这一节中，我们使用C4.5决策树算法对bank-data建立起分类模型。 <br>
+我们来看原来的“<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/data/bank-data.csv" target="_blank"><span style="color:#006699">bank-data.csv</span></a>”文件。“ID”属性肯定是不需要的。由于C4.5算法可以处理数&#20540;型的属性，我们不用像前面用关联规则那样把每个变量都离散化成分类型。尽管如此，我们还是把“Children”属性转换成分类型的两个&#20540;“YES”和“NO”。另外，我们的训练集仅取原来数据集实例的一半；而从另外一半中抽出若干条作为待预测的实例，它们的“pep”属性都设为缺失&#20540;。经过了这些处理的训练集数据在<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/classify/bank.arff" target="_blank"><span style="color:#006699">这里</span></a>下载；待预测集数据在<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/classify/bank-new.arff" target="_blank"><span style="color:#006699">这里</span></a>下载。<br>
+<br>
+我们用“Explorer”打开训练集“bank.arff”，观察一下它是不是按照前面的要求处理好了。切换到“Classify”选项卡，点击“Choose”按钮后可以看到很多分类或者回归的算法分门别类的列在一个树型框里。3.5版的WEKA中，树型框下方有一个“Filter...”按钮，点击可以根据数据集的特性过滤掉不合适的算法。我们数据集的输入属性中有“Binary”型（即只有两个类的分类型）和数&#20540;型的属性，而Class变量是“Binary”的；于是我们勾选“Binary attributes”“Numeric
+ attributes”和“Binary class”。点“OK”后回到树形图，可以发现一些算法名称变红了，说明它们不能用。选择“trees”下的“J48”，这就是我们需要的C4.5算法，还好它没有变红。<br>
+点击“Choose”右边的文本框，弹出新窗口为该算法设置各种参数。点“More”查看参数说明，点“Capabilities”是查看算法适用范围。这里我们把参数保持默认。<br>
+现在来看左中的“Test Option”。我们没有专门设置检验数据集，为了保证生成的模型的准确性而不至于出现过拟合（overfitting）的现象，我们有必要采用10折交叉验证（10-fold cross validation）来选择和评估模型。若不明白交叉验证的含义可以<a href="http://www.google.com/search?&amp;q=cross&#43;validation" target="_blank"><span style="color:#006699">Google</span></a>一下。<br>
+<br>
+<span style="color:blue">建模结果</span> <br>
+OK，选上“Cross-validation”并在“Folds”框填上“10”。点“Start”按钮开始让算法生成决策树模型。很快，用文本表示的一棵决策树，以及对这个决策树的误差分析等等结果出现在右边的“Classifier output”中。同时左下的“Results list”出现了一个项目显示刚才的时间和算法名称。如果换一个模型或者换个参数，重新“Start”一次，则“Results list”又会多出一项。<br>
+<br>
+我们看到“J48”算法交叉验证的结果之一为 <br>
+<span style="color:green">Correctly Classified Instances 206 68.6667 %</span> <br>
+也就是说这个模型的准确度只有69%左右。也许我们需要对原属性进行处理，或者修改算法的参数来提高准确度。但这里我们不管它，继续用这个模型。 <br>
+<br>
+<strong><span style="color:red">右键点击</span><span style="color:red">“Results list”</span><span style="color:red">刚才出现的那一项，弹出菜单中选择</span><span style="color:red">“Visualize tree”</span><span style="color:red">，新窗口里可以看到图形模式的决策树。建议把这个新窗口最大化，然后点右键，选</span><span style="color:red">“Fit
+ to screen”</span><span style="color:red">，可以把这个树看清楚些。看完后截图或者关掉</span></strong><br>
+<br>
+这里我们解释一下“Confusion Matrix”的含义。 <br>
+<span style="color:green">=== Confusion Matrix === </span><span style="color:green"><br>
+&nbsp;&nbsp;a b &lt;-- classified as </span><br>
+&nbsp;&nbsp;74 64 | a = YES <br>
+&nbsp;&nbsp;30 132 | b = NO <br>
+这个矩阵是说，原本“pep”是“YES”的实例，有74个被正确的预测为“YES”，有64个错误的预测成了“NO”；原本“pep”是“NO”的实例，有30个被错误的预测为“YES”，有132个正确的预测成了“NO”。<span style="color:red">74&#43;64&#43;30&#43;132 = 300</span><span style="color:red">是实例总数，而</span><span style="color:red">(74&#43;132)/3</span>00 = 0.68667正好是正确分类的实例所占比例。这个矩阵对角线上的数字越大，说明预测得越好。<br>
+<br>
+<span style="color:blue">模型应用</span> <br>
+现在我们要用生成的模型对那些待预测的数据集进行预测了。注意待预测数据集和训练用数据集各个属性的设置必须是一致的。<span style="color:red">即使你没有待预测数据集的</span><span style="color:red">Class</span><span style="color:red">属性的&#20540;，你也要添加这个属性，可以将该属性在各实例上的&#20540;均设成缺失&#20540;。</span><span style="color:red"><br>
+</span><span style="color:red">在</span><span style="color:red">“Test Opion”</span><span style="color:red">中选择</span><span style="color:red">“Supplied test set”</span><span style="color:red">，并且</span><span style="color:red">“Set”</span><span style="color:red">成你要应用模型的数据集，这里是</span><span style="color:red">“bank-new.arff”</span><span style="color:red">文件。</span><span style="color:red"><br>
+</span>现在，右键点击“Result list”中刚产生的那一项，选择“Re-evaluate model on current test set”。右边显示结果的区域中会增加一些内容，告诉你该模型应用在这个数据集上表现将如何。如果你的Class属性都是些缺失&#20540;，那这些内容是无意义的，我们关注的是模型在新数据集上的预测&#20540;。<br>
+<span style="color:red">现在点击右键菜单中的</span><span style="color:red">“Visualize classifier errors”</span><span style="color:red">，将弹出一个新窗口显示一些有关预测误差的散点图。点击这个新窗口中的</span><span style="color:red">“Save”</span><span style="color:red">按钮，保存一个</span><span style="color:red">Arff</span><span style="color:red">文件。打开这个文件可以看到在倒数第二个位置多了一个属性（</span><span style="color:red">predictedpep</span><span style="color:red">），这个属性上的&#20540;就是模型对每个实例的预测&#20540;。</span><span style="color:red"><br>
+</span><br>
+<span style="color:blue">使用命令行（推荐）</span> <br>
+虽然使用图形界面查看结果和设置参数很方便，但是最直接最灵活的建模及应用的办法仍是使用命令行。 <br>
+打开“Simple CLI”模块，像上面那样使用“J48”算法的命令&#26684;式为： <br>
+<span style="color:green">java weka.classifiers.trees.J48 -C 0.25 -M 2 -t directory-path\bank.arff -d directory-path \bank.model</span><br>
+其中参数“ -C 0.25”和“-M 2”是和图形界面中所设的一样的。<span style="color:red">“-t ”</span><span style="color:red">后面跟着的是训练数据集的完整路径（包括目录和文件名），</span><span style="color:red">“-d ”</span><span style="color:red">后面跟着的是保存模型的完整路径。注意！这里我们可以把模型保存下来。</span><span style="color:red"><br>
+</span><span style="color:red">输入上述命令后，所得到树模型和误差分析会在</span><span style="color:red">“Simple CLI”</span><span style="color:red">上方显示，可以复制下来保存在文本文件里。误差是把模型应用到训练集上给出的。</span><br>
+把这个模型应用到“bank-new.arff”所用命令的&#26684;式为： <br>
+<a name="OLE_LINK39"></a><a name="OLE_LINK38"><span style="color:green">java weka.classifiers.trees.J48 -p 9 -l directory-path\bank.model -T directory-path \bank-new.arff</span><br>
+</a>其中“-p 9”说的是模型中的待预测属性的真实&#20540;存在第9个（也就是“pep”）属性中，这里它们全部未知因此全部用缺失&#20540;代替。“-l”后面是模型的完整路径。“-T”后面是待预测数据集的完整路径。<br>
+输入上述命令后，在“Simple CLI”上方会有这样一些结果： <br>
+<span style="color:green">0 YES 0.75 ? </span><span style="color:green"><br>
+1 NO 0.7272727272727273 ? </span><br>
+2 YES 0.95 ? <br>
+3 YES 0.8813559322033898 ? <br>
+4 NO 0.8421052631578947 ? <br>
+... <br>
+这里的第一列就是我们提到过的“Instance_number”，第二列就是刚才的“predictedpep”，第四列则是“bank-new.arff”中原来的“pep”&#20540;（这里都是“?”缺失&#20540;）。第三列对预测结果的置信度（confidence ）。比如说对于实例0，我们有75%的把握说它的“pep”的&#20540;会是“YES”，对实例4我们有84.2%的把握说它的“pep”&#20540;会是“NO”。<br>
+我们看到，使用命令行至少有两个好处。一个是可以把模型保存下来，这样有新的待预测数据出现时，不用每次重新建模，直接应用保存好的模型即可。另一个是对预测结果给出了置信度，我们可以有选择的采纳预测结果，例如，只考虑那些置信度在85%以上的结果。<br>
+<br>
+----整理自<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/classify.html" target="_blank"><span style="color:#006699">http://maya.cs.depaul.edu/~classes/ect584/WEKA/classify.html</span></a><br>
+<br>
+<br>
+<br>
+<strong>6. 聚类分析</strong> <br>
+<br>
+<span style="color:blue">原理与实现</span> <br>
+<strong><span style="color:red">聚类分析中的</span><span style="color:red">“</span><span style="color:red">类</span><span style="color:red">”</span><span style="color:red">（</span><span style="color:red">cluster</span><span style="color:red">）和前面分类的</span><span style="color:red">“</span><span style="color:red">类</span><span style="color:red">”</span><span style="color:red">（</span><span style="color:red">class</span><span style="color:red">）是不同的，对</span><span style="color:red">cluster</span><span style="color:red">更加准确的翻译应该是</span><span style="color:red">“</span><span style="color:red">簇</span><span style="color:red">”</span><span style="color:red">。聚类的任务是把所有的实例分配到若干的簇，使得同一个簇的实例聚集在一个簇中心的周围，它们之间距离的比较近；而不同簇实例之间的距离比较远。对于由数&#20540;型属性刻画的实例来说，这个距离通常指欧氏距离。</span><span style="color:red"><br>
+</span></strong>现在我们对前面的“bank data”作聚类分析，使用最常见的K均&#20540;（K-means）算法。下面我们简单描述一下K均&#20540;聚类的步骤。<br>
+K均&#20540;算法首先随机的指定K个簇中心。然后：1)将每个实例分配到距它最近的簇中心，得到K个簇；2)计分别计算各簇中所有实例的均&#20540;，把它们作为各簇新的簇中心。重复1)和2)，直到K个簇中心的位置都固定，簇的分配也固定。<br>
+<br>
+上述K均&#20540;算法只能处理数&#20540;型的属性，遇到分类型的属性时要把它变为若干个取&#20540;0和1的属性。WEKA将自动实施这个分类型到数&#20540;型的变换，而且WEKA会自动对数&#20540;型的数据作标准化。因此，对于原始数据“bank-data.csv”，我们所做的预处理只是删去属性“id”，保存为ARFF&#26684;式后，修改属性“children”为分类型。这样得到的数据文件为“<a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/cluster/bank.arff" target="_blank"><span style="color:#006699">bank.arff</span></a>”，含600条实例。<br>
+<br>
+用“Explorer”打开刚才得到的“bank.arff”，并切换到“Cluster”。点“Choose”按钮选择“SimpleKMeans”，这是WEKA中实现K均&#20540;的算法。点击旁边的文本框，修改“numClusters”为6，说明我们希望把这600条实例聚成6类，即K=6。下面的“seed”参数是要设置一个随机种子，依此产生一个随机数，用来得到K均&#20540;算法中第一次给出的K个簇中心的位置。我们不妨暂时让它就为10。<br>
+选中“Cluster Mode”的“Use training set”，点击“Start”按钮，观察右边“Clusterer output”给出的聚类结果。也可以在左下角“Result list”中这次产生的结果上点右键，“View in separate window”在新窗口中浏览结果。<br>
+<br>
+<span style="color:blue">结果解释</span> <br>
+首先我们注意到结果中有这么一行： <br>
+<span style="color:green">Within cluster sum of squared errors: 1604.7416693522332</span><br>
+这是评价聚类好坏的标准，数&#20540;越小说明同一簇实例之间的距离越小。也许你得到的数&#20540;会不一样；实际上如果把“seed”参数改一下，得到的这个数&#20540;就可能会不一样。我们应该多尝试几个seed，并采纳这个数&#20540;最小的那个结果。例如我让“seed”取100，就得到<br>
+<span style="color:green">Within cluster sum of squared errors: 1555.6241507629218</span><br>
+我该取后面这个。当然再尝试几个seed，这个数&#20540;可能会更小。 <br>
+<br>
+接下来“Cluster centroids:”之后列出了各个簇中心的位置。<strong><span style="color:red">对于数&#20540;型的属性，簇中心就是它的均&#20540;（</span><span style="color:red">Mean</span><span style="color:red">）；分类型的就是它的众数（</span><span style="color:red">Mode</span><span style="color:red">），</span></strong>也就是说这个属性上取&#20540;为众数&#20540;的实例最多。对于数&#20540;型的属性，还给出了它在各个簇里的标准差（Std
+ Devs）。 <br>
+<br>
+最后的“Clustered Instances”是各个簇中实例的数目及百分比。 <br>
+<br>
+为了观察可视化的聚类结果，我们在左下方“Result list”列出的结果上右击，点“Visualize cluster assignments”。弹出的窗口给出了各实例的散点图。最上方的两个框是选择横坐标和纵坐标，第二行的“color”是散点图着色的依据，默认是根据不同的簇“Cluster”给实例标上不同的颜色。<br>
+可以在这里点“Save”把聚类结果保存成ARFF文件。在这个新的ARFF文件中，<span style="color:red">“instance_number”</span><span style="color:red">属性表示某实例的编号，</span><span style="color:red">“Cluster”</span><span style="color:red">属性表示聚类算法给出的该实例所在的簇。</span><span style="color:red"><br>
+</span><br>
+<br>
+----整理自 <a href="http://maya.cs.depaul.edu/~classes/ect584/WEKA/k-means.html" target="_blank">
+<span style="color:#006699">http://maya.cs.depaul.edu/~classes/ect584/WEKA/k-means.html</span></a></p>
+   
+</div>
+
+
+
+
+<!-- Baidu Button BEGIN -->
+
+
+
+
+<div class="bdsharebuttonbox tracking-ad" style="float: right;" data-mod="popu_172">
+<a href="#" class="bds_more" data-cmd="more" style="background-position:0 0 !important; background-image: url(http://bdimg.share.baidu.com/static/api/img/share/icons_0_16.png?v=d754dcc0.png) !important"></a>
+<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"  style="background-position:0 -52px !important"></a>
+<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"style="background-position:0 -104px !important"></a>
+<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"style="background-position:0 -260px !important"></a>
+<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"style="background-position:0 -208px !important"></a>
+<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"style="background-position:0 -1612px !important" ></a>
+</div>
+<script>window._bd_share_config = { "common": { "bdSnsKey": {}, "bdText": "", "bdMini": "1", "bdMiniList": false, "bdPic": "", "bdStyle": "0", "bdSize": "16" }, "share": {} }; with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+<!-- Baidu Button END -->
+
+   <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_detail.css" />
+
+    
+<!--172.16.140.15-->
+
+<!-- Baidu Button BEGIN -->
+<script type="text/javascript" id="bdshare_js" data="type=tools&amp;uid=1536434" ></script>
+<script type="text/javascript" id="bdshell_js"></script>
+<script type="text/javascript">
+    document.getElementById("bdshell_js").src = "http://bdimg.share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000)
+</script>
+<!-- Baidu Button END -->
+
+ 
+
+        <div id="digg" ArticleId="7589306" >
+            <dl id="btnDigg" class="digg digg_disable"  onclick="btndigga();">
+               
+                 <dt>顶</dt>
+                <dd>7</dd>
+            </dl>
+           
+              
+            <dl id="btnBury" class="digg digg_disable"  onclick="btnburya();">
+              
+                  <dt>踩</dt>
+                <dd>1</dd>               
+            </dl>
+            
+        </div>
+     <div class="tracking-ad" data-mod="popu_222"><a href="javascript:void(0);" >&nbsp;</a>   </div>
+    <div class="tracking-ad" data-mod="popu_223"> <a href="javascript:void(0);" >&nbsp;</a></div>
+    <script type="text/javascript">
+                function btndigga() {
+                    $(".tracking-ad[data-mod='popu_222'] a").click();
+                }
+                function btnburya() {
+                    $(".tracking-ad[data-mod='popu_223'] a").click();
+                }
+            </script>
+
+   <ul class="article_next_prev">
+                <li class="prev_article"><span  onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian']);location.href='/yangliuy/article/details/7555518';">上一篇</span><a href="/yangliuy/article/details/7555518" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_shangyipian'])">求全排列问题的算法</a></li>
+                <li class="next_article"><span onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian']);location.href='/yangliuy/article/details/7628787';">下一篇</span><a href="/yangliuy/article/details/7628787" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_xiayipian'])">基于机器学习的SNS隐私保护策略推荐向导的设计与实现</a></li>
+    </ul>
+
+    <div style="clear:both; height:10px;"></div>
+
+
+      
+</div>
+<div id="suggest"></div>
+         <script  language="javascript" type='text/javascript'>     
+             $(function(){
+                 $.get("/yangliuy/svc/GetSuggestContent/7589306",function(data){
+                     $("#suggest").html(data);
+                 });     
+             });             
+         </script>  
+
+
+<style>
+.blog-ass-articl dd {
+color: #369;
+width: 99%; /*修改行*/
+float: left;
+overflow: hidden;
+font: normal normal 12px/23px "SimSun";
+height: 23px;
+margin: 0;
+padding: 0 0 0 10px;
+margin-right: 30px;
+background: url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;
+}
+</style>
+
+ <link rel="stylesheet" href="http://static.blog.csdn.net/css/replace.css"/>
+<div id="relate" data-mod="popu_218"  class="tracking-ad">
+        <div class="relate_t">
+            <h3><span>参考知识库</span></h3>
+        </div>
+        <div class="relate_c">
+        </div>
+</div>
+ 
+
+<dl class="blog-ass-articl" id="res-relatived" > 
+    <div class="embody embody_b" id="libkeyparent"  style="display:none">
+            <span class="embody_t">更多资料请参考：</span>
+            <div class="embody_c" id="libkey"></div>
+    </div>
+
+
+     <dt><span>猜你在找</span></dt>    
+
+
+   
+
+
+    <div id="adCollege" style="width: 42%;float: left;"> 
+        <script src="http://csdnimg.cn/jobreco/job_reco.js" type="text/javascript"></script> 
+        <script type="text/javascript">
+            csdn.position.showEdu({
+                sourceType: "blog",
+                searchType: "detail",
+                searchKey: "7589306",
+                username: "",
+                recordcount: "5",
+                containerId: "adCollege" //容器DIV的id。 
+            });
+        </script> 
+    </div>  
+
+    
+     <div id="res"  data-mod="popu_36"  class="tracking-ad" style="width: 42%;float: left;margin-right: 30px;"></div>
+   
+</dl>
+
+
+<script type="text/javascript">
+    $(function () {
+        setTimeout(function () {
+            var searchtitletags = 'WEKA使用教程(经典教程转载)' + ',' + $("#tags").html();
+            searchService({
+                index: 'blog',
+                query: searchtitletags,
+                from: 5,
+                size: 5,
+                appendTo: '#res',
+                url: 'recommend',
+                his: 2,
+                client: "blog_cf_enhance",
+                tmpl: '<dd style="background:url(http://static.blog.csdn.net/skin/default/images/blog-dot-red3.gif) no-repeat 0 10px;"><a href="#{ url }" title="#{ title }" strategy="#{ strategy }">#{ title }</a></dd>'
+            });
+        }, 500);
+    });    
+
+ </script>  
+
+    <div id="ad_cen">        
+                    <script type="text/javascript">
+                        /*博客内容页下方Banner-728*90，创建于2014-7-3*/
+                        var cpro_id = "u1607657";
+                    </script>
+                    <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/c.js"></script>
+    </div>  
+
+<div class="comment_class">
+    <div id="comment_title" class="panel_head">
+        <span class="see_comment">查看评论</span><a name="comments"></a></div>
+    <div id="comment_list">
+    </div>
+    <div id="comment_bar">
+    </div>
+    <div id="comment_form">
+    </div>
+    <div class="announce">
+        * 以上用户言论只代表其个人观点，不代表CSDN网站的观点或立场<a name="reply"></a><a name="quote"></a></div>
+</div>
+
+<script type="text/javascript">
+    var fileName = '7589306';
+    var commentscount = 8;
+    var islock = false
+</script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/comment.js"></script>
+    <div id="ad_bot">
+    </div>
+<div id="report_dialog">
+</div>
+
+<div id="d-top"  style="bottom:60px;">
+        <a id="quick-reply" class="btn btn-top q-reply" title="快速回复" style="display:none;">
+            <img src="http://static.blog.csdn.net/images/blog-icon-reply.png" alt="快速回复">
+        </a>    
+
+    <a id="d-top-a" class="btn btn-top backtop"  style="display: none;" title="返回顶部" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_huidaodingbu'])" style="">         
+         <img src="http://static.blog.csdn.net/images/top.png" alt="TOP">
+    </a>
+</div>
+<script type="text/javascript">
+    $(function ()
+    {
+        $("#ad_frm_0").height("90px");
+        
+        setTimeout(function(){
+            $("#ad_frm_2").height("200px");
+        },1000);    
+    });
+  
+</script>
+<style type="text/css">
+    .tag_list
+    {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #D7CBC1;
+        color: #000000;
+        font-size: 12px;
+        line-height: 20px;
+        list-style: none outside none;
+        margin: 10px 2% 0 1%;
+        padding: 1px;
+    }
+    .tag_list h5
+    {
+        background: none repeat scroll 0 0 #E0DBD3;
+        color: #47381C;
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .tag_list h5 a
+    {
+        color: #47381C;
+    }
+    .classify
+    {
+        margin: 10px 0;
+        padding: 4px 12px 8px;
+    }
+    .classify a
+    {
+        margin-right: 20px;
+        white-space: nowrap;
+    }
+</style>
+
+
+<div class="tag_list" style="display:none"></div>
+  <script  language="javascript" type='text/javascript'>     
+      $(function(){
+              setTimeout(function(){
+                  $.get("/yangliuy/svc/GetTagContent",function(data){
+                      $(".tag_list").html(data).show();
+                  });     
+              });
+          },500);                       
+ </script> 
+
+
+<div id="pop_win" style="display:none ;position: absolute; z-index: 10000; border: 1px solid rgb(220, 220, 220); top: 222.5px; left: 630px; opacity: 1; background: none 0px 0px repeat scroll rgb(255, 255, 255);">
+    
+</div>
+<div id="popup_mask"></div>
+<style>
+    #popup_mask
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        z-index: 9999;
+        left: 0px;
+        top: 0px;
+        opacity: 0.3;
+        filter: alpha(opacity=30);
+        display: none;
+    }
+
+</style>
+
+
+
+
+<script type="text/javascript">
+    $(function(){
+        setTimeout(function(){
+            $(".comment_body:contains('回复')").each(function(index,item){
+                var u=$(this).text().split('：')[0].toString().replace("回复","")
+                var thisComment=$(this);
+                if(u)
+                {
+                    $.getJSON("https://passport.csdn.net/get/nick?callback=?", {users: u}, function(a) {
+                        if(a!=null&&a.data!=null&&a.data.length>0)
+                        {
+                            nick=a.data[0].n; 
+                            if(u!=nick)
+                            {
+                                thisComment.text(thisComment.text().replace(u,nick));  
+                            }
+                        }       
+                    });  
+                }
+            });         
+
+        },200);  
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },5000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },10000);
+
+        setTimeout(function(){
+            $(".math").each(function(index,value){$(this).find("span").last().css("color","#fff"); })
+        },15000);
+        
+        setTimeout(function(){
+            $("a img[src='http://js.tongji.linezing.com/stats.gif']").parent().css({"position":"absolute","left":"50%"});
+        },300);
+    });
+
+    function loginbox(){
+        var $logpop=$("#pop_win");
+        $logpop.html('<iframe src="https://passport.csdn.net/account/loginbox?service=http://static.blog.csdn.net/callback.htm" frameborder="0" height="600" width="400" scrolling="no"></iframe>');
+
+        $('#popup_mask').css({
+            opacity: 0.5,
+            width: $( document ).width() + 'px',
+            height:  $( document ).height() + 'px'
+        });
+        $('#popup_mask').css("display","block");
+ 
+        $logpop.css( {
+            top: ($( window ).height() - $logpop.height())/ 2  + $( window 
+       ).scrollTop() + 'px',
+            left:($( window ).width() - $logpop.width())/ 2
+        } );
+ 
+        setTimeout( function () {
+            $logpop.show();
+            $logpop.css( {
+                opacity: 1
+            } );
+        }, 200 );
+ 
+        $('#popup_mask').unbind("click");
+        $('#popup_mask').bind("click", function(){
+            $('#popup_mask').hide();
+            var $clopop = $("#pop_win");
+            $("#common_ask_div_sc").css("display","none");
+            $clopop.css( {
+                opacity: 0
+            } );
+            setTimeout( function () {
+                $clopop.hide();
+            }, 350 );
+            return false;
+        });
+    }   
+
+</script>
+ <script language="javascript" type="text/javascript" src="http://ads.csdn.net/js/async_new.js"></script>      
+
+
+                        <div class="clear">
+                        </div>
+                    </div>                   
+                
+            </div>
+                   
+           <div id="side">
+               
+    <div class="side">
+<div id="panel_Profile" class="panel">
+<ul class="panel_head"><span>个人资料</span></ul>
+<ul class="panel_body profile">
+<div id="blog_userface">
+    <a href="http://my.csdn.net/yangliuy" target="_blank">
+    <img src="http://avatar.csdn.net/6/1/D/1_yangliuy.jpg" title="访问我的空间" style="max-width:90%"/>
+    </a>
+    <br />
+    <span><a href="http://my.csdn.net/yangliuy" class="user_name" target="_blank">yangliuy</a></span>
+</div>
+<div class="interact">
+
+    <a href="javascript:void(0);" class="attent" id="span_add_follow" title="[加关注]"></a>
+
+ <a href="javascript:void(0);" class="letter"  title="[发私信]" onclick="window.open('http://msg.csdn.net/letters/model?receiver=yangliuy','_blank','height=350,width=700');_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_sixin'])"></a>  
+</div>
+<div id="blog_medal">
+                       <div class="ico_expert"  onclick="javascript:location='http://blog.csdn.net/experts/rule.html'" title="CSDN认证专家" style="cursor:pointer;width:60px;height:60px;background:url('http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/bokezhuanjiamiddle.png') no-repeat" ></div>
+                <div id="bms_box">
+                                            <a  target="_blank">
+                                                    <img src="http://c.csdnimg.cn/jifen/images/xunzhang/xunzhang/chizhiyiheng.png" onmouseover="m_over_m(this,4)" onmouseout="m_out_m()" alt="2" >
+                                            </a>
+               </div>
+</div>
+<ul id="blog_rank">
+    <li>访问：<span>1025544次</span></li>
+    <li>积分：<span>11499</span> </li>    
+    <li >等级： <span style="position:relative;display:inline-block;z-index:1" >
+            <img src="http://c.csdnimg.cn/jifen/images/xunzhang/jianzhang/blog7.png" alt="" style="vertical-align: middle;" id="leveImg">
+            <div id="smallTittle" style=" position: absolute;  left: -24px;  top: 25px;  text-align: center;  width: 101px;  height: 32px;  background-color: #fff;  line-height: 32px;  border: 2px #DDDDDD solid;  box-shadow: 0px 2px 2px rgba (0,0,0,0.1);  display: none;   z-index: 999;">
+            <div style="left: 42%;  top: -8px;  position: absolute;  width: 0;  height: 0;  border-left: 10px solid transparent;  border-right: 10px solid transparent;  border-bottom: 8px solid #EAEAEA;"></div>
+            积分：11499 </div>
+        </span>  </li>
+    <li>排名：<span>第897名</span></li>
+</ul>
+<ul id="blog_statistics">
+    <li>原创：<span>239篇</span></li>
+    <li>转载：<span>36篇</span></li>
+    <li>译文：<span>1篇</span></li>
+    <li>评论：<span>716条</span></li>
+</ul>
+</ul>
+</div>
+
+
+
+
+<div id="custom_column_28627269" class="panel">
+<ul class="panel_head"><span>我的微博</span></ul>
+<ul class="panel_body">
+<iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=2073289817&verifier=8aeb337e&dpc=1"></iframe>
+</ul>
+</div><div class="panel" id="panel_Search">
+    <ul class="panel_head"><span>文章搜索</span></ul>
+    <ul class="panel_body">
+        <form id="frmSearch" action="http://so.csdn.net/search" class="form_search" target="_blank">
+        <span><input id="inputSearch" type="text" class="blogsearch" title="请输入关键字" /></span>
+        <input id="btnSubmit" type="button" value="搜索" title="search in blog" />
+        <input type="hidden" name="q" id="inputQ" />
+        <input type="hidden" name="t" value="blog" />
+        <a id="btnSearchBlog" target="_blank"></a>
+        </form>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {           
+            search();
+        });
+
+        $("#frmSearch").submit(function () {
+            search();
+            return false;
+        });
+
+        function search()
+        {
+            var url = "http://so.csdn.net/so/search/s.do?q=" + encodeURIComponent($("#inputSearch").val()) + "&u=" + username + "&t=blog";
+            window.location.href = url;
+        }   
+    });
+</script><div id="panel_Category" class="panel">
+<ul class="panel_head"><span>文章分类</span></ul>
+<ul class="panel_body">    
+                 <li>
+                    <a href="/yangliuy/article/category/760658" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-分治与二分查找</a><span>(12)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760656" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-动态规划</a><span>(41)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760666" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-搜索DFS/BFS</a><span>(32)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760665" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-数学题</a><span>(22)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/958933" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-Hash</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760654" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-大数</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760653" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-字符串处理</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760652" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-链表</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760664" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-数论与数组</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760657" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-树与图论</a><span>(29)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/958932" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-栈和队列</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/2669645" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-排序</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760663" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-模拟题</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760668" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-网络流</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760667" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-贪心</a><span>(15)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760672" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-线段树</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1311109" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-计算几何</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760655" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-递归</a><span>(25)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/760671" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-位运算与高精度</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/2714135" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-排列与组合</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/2714129" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">ACM-双指针</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/751551" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">LeetCode</a><span>(89)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/3035573" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">CC150</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/2943237" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">HackerRank</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/756389" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Android及移动开发</a><span>(3)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/806335" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">GRE_ISSUE</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/806336" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">GRE_ARGU</a><span>(7)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/753063" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">C/C++</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/806352" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PHP/Python/Perl</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/753062" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">JAVA</a><span>(13)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1431376" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Matlab</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/541260" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">编程竞赛</a><span>(9)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/959078" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">编程面试题</a><span>(8)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1085633" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">数据挖掘</a><span>(26)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1085634" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">机器学习</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1090729" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">NLP/IR</a><span>(18)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1058699" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">OMSA</a><span>(6)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1242782" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PGM/Topic Model</a><span>(11)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/6042646" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Research&amp;Paper</a><span>(10)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1305190" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Math</a><span>(5)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1242781" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">PRML</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1079785" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Hadoop/MapReduce</a><span>(0)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/1093340" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">Linux/Unix</a><span>(2)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/956640" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">游戏研发</a><span>(1)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/958254" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">网络安全</a><span>(4)</span>
+                </li>
+                 <li>
+                    <a href="/yangliuy/article/category/541261" onclick="_gaq.push(['_trackEvent','function', 'onclick', 'blog_articles_wenzhangfenlei']); ">生活相关</a><span>(5)</span>
+                </li>
+</ul>
+</div><div id="hotarticls" class="panel">
+<ul class="panel_head">
+    <span>       
+阅读排行    </span>
+</ul>
+
+<ul class="panel_body itemlist">
+<li>
+<a href="/yangliuy/article/details/7589306" title="WEKA使用教程(经典教程转载)">WEKA使用教程(经典教程转载)</a><span>(86780)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8330640" title="概率语言模型及其变形系列(1)-PLSA及EM算法">概率语言模型及其变形系列(1)-PLSA及EM算法</a><span>(46382)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8302599" title="概率语言模型及其变形系列(2)-LDA及Gibbs Sampling">概率语言模型及其变形系列(2)-LDA及Gibbs Sampling</a><span>(45526)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7322015" title="数据挖掘-决策树ID3分类算法的C++实现">数据挖掘-决策树ID3分类算法的C++实现</a><span>(37416)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8067261" title="Stanford概率图模型（Probabilistic Graphical Model）— 第一讲 贝叶斯网络基础">Stanford概率图模型（Probabilistic Graphical Model）— 第一讲 贝叶斯网络基础</a><span>(33297)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8457329" title="概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现">概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现</a><span>(32792)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8296481" title="文本语言模型的参数估计-最大似然估计、MAP及贝叶斯估计">文本语言模型的参数估计-最大似然估计、MAP及贝叶斯估计</a><span>(26064)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7400984" title="数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（上）">数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（上）</a><span>(25011)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7494983" title="数据挖掘-关联分析频繁模式挖掘Apriori、FP-Growth及Eclat算法的JAVA及C++实现">数据挖掘-关联分析频繁模式挖掘Apriori、FP-Growth及Eclat算法的JAVA及C++实现</a><span>(24500)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8041343" title="3行程序搞定SVM分类-用JAVA程序调用LibSVM API 最简单的示例">3行程序搞定SVM分类-用JAVA程序调用LibSVM API 最简单的示例</a><span>(22976)</span>
+</li>
+</ul>
+</div>
+<div id="hotarticls2" class="panel">
+<ul class="panel_head"><span>评论排行</span></ul>
+<ul class="panel_body itemlist">
+<li>
+<a href="/yangliuy/article/details/8457329" title="概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现">概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现</a><span>(98)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7322015" title="数据挖掘-决策树ID3分类算法的C++实现">数据挖掘-决策树ID3分类算法的C++实现</a><span>(89)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8041343" title="3行程序搞定SVM分类-用JAVA程序调用LibSVM API 最简单的示例">3行程序搞定SVM分类-用JAVA程序调用LibSVM API 最简单的示例</a><span>(62)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8302599" title="概率语言模型及其变形系列(2)-LDA及Gibbs Sampling">概率语言模型及其变形系列(2)-LDA及Gibbs Sampling</a><span>(60)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7400984" title="数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（上）">数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（上）</a><span>(47)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7401142" title="数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（下）">数据挖掘-基于贝叶斯算法及KNN算法的newsgroup18828文本分类器的JAVA实现（下）</a><span>(46)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8330640" title="概率语言模型及其变形系列(1)-PLSA及EM算法">概率语言模型及其变形系列(1)-PLSA及EM算法</a><span>(40)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7471659" title="数据挖掘-基于Kmeans算法、MBSAS算法及DBSCAN算法的newsgroup18828文本聚类器的JAVA实现(上)">数据挖掘-基于Kmeans算法、MBSAS算法及DBSCAN算法的newsgroup18828文本聚类器的JAVA实现(上)</a><span>(37)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/7316496" title="SVM算法入门">SVM算法入门</a><span>(23)</span>
+</li>
+<li>
+<a href="/yangliuy/article/details/8296481" title="文本语言模型的参数估计-最大似然估计、MAP及贝叶斯估计">文本语言模型的参数估计-最大似然估计、MAP及贝叶斯估计</a><span>(18)</span>
+</li>
+</ul>
+</div>
+
+
+<div id="custom_column_22048526" class="panel">
+<ul class="panel_head"><span>推荐博客</span></ul>
+<ul class="panel_body">
+<p>
+<a href="http://blog.csdn.net/v_JULY_v">结构之法算法之道</a>
+</p>
+<p>
+<a href="http://freemind.pluskid.org/">Freemind</a>
+</p>
+<p>
+<a href="http://blog.csdn.net/abcjennifer">Rechel Zhang的专栏</a>
+</p>
+<p>
+<a href="http://www.xperseverance.net/blogs/">持之以恒</a>
+</p>
+<p>
+<a href="http://www.cnblogs.com/jerrylead/">jerrylead</a>
+</p>
+<p>
+<a href="http://blog.tomtung.com/">tomtung</a>
+</p>
+<p>
+<a href="http://hi.baidu.com/new/batmanfly">PKU赵鑫师兄博客</a>
+</p>
+<p>
+<a href="http://www.52nlp.cn/">我爱自然语言处理</a>
+</p>
+<p>
+<a href="http://blog.csdn.net/linhuanmars">Code Ganker LeetCode</a>
+</p>
+</ul>
+</div><div id="panel_Archive" class="panel">
+<ul class="panel_head"><span>文章存档</span></ul>
+<ul class="panel_body">
+<div id="archive_list">
+<!--归档统计-->
+<li><a href="/yangliuy/article/month/2016/10">2016年10月</a><span>(3)</span></li><li><a href="/yangliuy/article/month/2016/07">2016年07月</a><span>(3)</span></li><li><a href="/yangliuy/article/month/2015/12">2015年12月</a><span>(4)</span></li><li><a href="/yangliuy/article/month/2015/08">2015年08月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2015/07">2015年07月</a><span>(9)</span></li><li><a href="/yangliuy/article/month/2015/06">2015年06月</a><span>(5)</span></li><li><a href="/yangliuy/article/month/2015/05">2015年05月</a><span>(6)</span></li><li><a href="/yangliuy/article/month/2015/04">2015年04月</a><span>(4)</span></li><li><a href="/yangliuy/article/month/2015/03">2015年03月</a><span>(19)</span></li><li><a href="/yangliuy/article/month/2015/02">2015年02月</a><span>(13)</span></li><li><a href="/yangliuy/article/month/2015/01">2015年01月</a><span>(25)</span></li><li><a href="/yangliuy/article/month/2014/12">2014年12月</a><span>(2)</span></li><li><a href="/yangliuy/article/month/2014/11">2014年11月</a><span>(13)</span></li><li><a href="/yangliuy/article/month/2014/10">2014年10月</a><span>(7)</span></li><li><a href="/yangliuy/article/month/2014/01">2014年01月</a><span>(2)</span></li><li><a href="/yangliuy/article/month/2013/07">2013年07月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2013/06">2013年06月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2013/05">2013年05月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2013/02">2013年02月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2013/01">2013年01月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2012/12">2012年12月</a><span>(4)</span></li><li><a href="/yangliuy/article/month/2012/11">2012年11月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2012/10">2012年10月</a><span>(6)</span></li><li><a href="/yangliuy/article/month/2012/09">2012年09月</a><span>(3)</span></li><li><a href="/yangliuy/article/month/2012/06">2012年06月</a><span>(2)</span></li><li><a href="/yangliuy/article/month/2012/05">2012年05月</a><span>(2)</span></li><li><a href="/yangliuy/article/month/2012/04">2012年04月</a><span>(4)</span></li><li><a href="/yangliuy/article/month/2012/03">2012年03月</a><span>(9)</span></li><li><a href="/yangliuy/article/month/2012/02">2012年02月</a><span>(11)</span></li><li><a href="/yangliuy/article/month/2012/01">2012年01月</a><span>(5)</span></li><li><a href="/yangliuy/article/month/2011/12">2011年12月</a><span>(24)</span></li><li><a href="/yangliuy/article/month/2011/04">2011年04月</a><span>(17)</span></li><li><a href="/yangliuy/article/month/2011/01">2011年01月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2010/12">2010年12月</a><span>(27)</span></li><li><a href="/yangliuy/article/month/2010/11">2010年11月</a><span>(36)</span></li><li><a href="/yangliuy/article/month/2010/10">2010年10月</a><span>(1)</span></li><li><a href="/yangliuy/article/month/2009/07">2009年07月</a><span>(2)</span></li><li><a href="/yangliuy/article/month/2009/05">2009年05月</a><span>(2)</span></li>
+</div>
+</ul>
+</div>
+<div id="newcomments" class="panel">
+<ul class="panel_head"><span>最新评论</span></ul>
+<ul class="panel_body itemlist">
+    <li>
+   
+         <a href="/yangliuy/article/details/7188227#comments">基于tesseract的多线程OCR服务器的JAVA实现</a>
+    <p style="margin:0px;"><a href="/shaoyi7" class="user_name">shaoyi7</a>:
+你好 楼主 tesseract程序是单线程的请问你的程序 如果同时有多个请求进来 会不会造成崩溃
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8330640#comments">概率语言模型及其变形系列(1)-PLSA及EM算法</a>
+    <p style="margin:0px;"><a href="/zhangyuewei19861125" class="user_name">zhangyuewei19861125</a>:
+顶！！！！！mark
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8457329#comments">概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现</a>
+    <p style="margin:0px;"><a href="/u012850353" class="user_name">u012850353</a>:
+@gunzip:这个程序输出的结果文档中有一个文档是phi的估计值，但是这个值并没有跟词语对应啊？要...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8457329#comments">概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现</a>
+    <p style="margin:0px;"><a href="/u014682615" class="user_name">u014682615</a>:
+but, 0.006127735134214163	people 0.004443134181201...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8067261#comments">Stanford概率图模型（Probabilistic Graphical Model）— 第一讲 贝叶斯网络基础</a>
+    <p style="margin:0px;"><a href="/silence1214" class="user_name">silence1214</a>:
+如果能够多给出一点解释，就更好了。这样就起到了真正的讲解的作用了。
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/7589306#comments">WEKA使用教程(经典教程转载)</a>
+    <p style="margin:0px;"><a href="/qq_27727245" class="user_name">qq_27727245</a>:
+我想请问一下怎么用UltraEdit对数据集进行编辑呢，我的数据集有好多类，我想把数据集分成两类，怎...
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/43230681#comments">几句话弄清楚Java参数传值还是传引用</a>
+    <p style="margin:0px;"><a href="/u010201451" class="user_name">u010201451</a>:
+简单易懂，受用
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/43230681#comments">概率语言模型及其变形系列(5)-LDA Gibbs Sampling 的JAVA实现</a>
+    <p style="margin:0px;"><a href="/huanyuanye" class="user_name">huanyuanye</a>:
+希望会有很大帮助！
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8296481#comments">文本语言模型的参数估计-最大似然估计、MAP及贝叶斯估计</a>
+    <p style="margin:0px;"><a href="/s824080933" class="user_name">s824080933</a>:
+请问 为什么在贝叶斯中 第二项p（theta|X）的积分不等于1呢？求解答
+    </p>
+    </li>
+    <li>
+   
+         <a href="/yangliuy/article/details/8041343#comments">3行程序搞定SVM分类-用JAVA程序调用LibSVM API 最简单的示例</a>
+    <p style="margin:0px;"><a href="/lyh_shzu" class="user_name">lyh_shzu</a>:
+@lyh_shzu:统一回复一下大家，我把svm_scale.java，svm_train.java...
+    </p>
+    </li>
+</ul>
+</div>
+    </div>
+    <div class="clear">
+    </div>
+
+
+                   <!-- 广告位开始 --> 
+                    <ins data-revive-zoneid="190" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins> 
+                    <!-- 广告位结束 -->
+
+           </div>   
+
+            <div class="clear">
+            </div>
+        </div>
+
+        
+
+<script type="text/javascript" src="http://c.csdnimg.cn/rabbit/cnick/cnick.js"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/newblog.min.js"></script>
+
+
+<script type="text/javascript" src="http://medal.blog.csdn.net/showblogmedal.ashx?blogid=574889"></script>
+<script type="text/javascript" src="http://static.blog.csdn.net/scripts/JavaScript1.js"></script>
+
+    <script type="text/javascript" src="http://passport.csdn.net/content/loginbox/login.js"></script>
+<script type="text/javascript">document.write("<img src=http://counter.csdn.net/pv.aspx?id=24 border=0 width=0 height=0>");</script>
+<script type="text/javascript" src="http://www.csdn.net/ui/scripts/Csdn/counter.js"></script>
+<script type="text/javascript" src="http://ad.csdn.net/scripts/ad-blog.js"></script>
+<script type="text/javascript">
+    $(function () {
+        function __get_code_toolbar(snippet_id) {
+            return $("<span class='tracking-ad' data-mod='popu_167'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "' target='_blank' title='在CODE上查看代码片'  style='text-indent:0;'><img src='https://code.csdn.net/assets/CODE_ico.png' width=12 height=12 alt='在CODE上查看代码片' style='position:relative;top:1px;left:2px;'/></a></span>"
+                    + "<span class='tracking-ad' data-mod='popu_170'><a href='https://code.csdn.net/snippets/"
+                    + snippet_id
+                    + "/fork' target='_blank' title='派生到我的代码片' style='text-indent:0;'><img src='https://code.csdn.net/assets/ico_fork.svg' width=12 height=12 alt='派生到我的代码片' style='position:relative;top:2px;left:2px;'/></a></span>");
+        }
+        
+        $("[code_snippet_id]").each(function () {
+            __s_id = $(this).attr("code_snippet_id");
+            if (__s_id != null && __s_id != "" && __s_id != 0 && parseInt(__s_id) > 70020) {
+                __code_tool = __get_code_toolbar(__s_id);
+                $(this).prev().find(".tools").append(__code_tool);
+            }
+        });
+
+        $(".bar").show();
+    });
+</script>
+
+
+
+
+    </div>
+      <!--new top-->
+    
+    <script id="csdn-toolbar-id" btnId="header_notice_num" wrapId="note1" count="5" subCount="5" type="text/javascript" src="http://c.csdnimg.cn/public/common/toolbar/js/toolbar.js"></script>     <!--new top-->
+   
+    <link href="http://c.csdnimg.cn/comm_ask/css/ask_float_block.css" type="text/css" rel="stylesheet" />
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/wmd.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/showdown.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/libs/prettify.js'></script>
+    <script language='JavaScript' type='text/javascript' src='http://c.csdnimg.cn/comm_ask/js/apps/ask_float_block.js'></script>
+   
+
+  <div id="a52b5334d" style="width: 1px; height: 1px; display: none;">
+                    <script id="adJs52b5334"></script>
+                    <script>document.getElementById("adJs52b5334").src = "http://ads.csdn.net/js/opt/52b5334.js?t=" + Math.random();</script>
+   </div>
+
+    <link rel="stylesheet" href="http://static.blog.csdn.net/css/blog_code.css" />
+    <script type="text/javascript" src="http://static.blog.csdn.net/scripts/saveToCode.js"></script>
+      <script type="text/javascript" src="//csdnimg.cn/rabbit/tracking-ad/main.js?75eacd8"></script>
+</body>
+</html>   
+ 
