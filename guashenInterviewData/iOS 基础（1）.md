@@ -35,7 +35,7 @@
 - (id)copyWithZone:(NSZone *)zone;
 ```
 
-当自己的类使用了 copy 修饰符，不仅要 override `copy` 方法，也要实现 `compyWithZone` 方法。
+当自己的类使用了 copy 修饰符，不仅要 override `copy` 方法，也要实现 `copyWithZone` 方法。
 
 ```Objective-C
 // .h
@@ -189,8 +189,10 @@ struct weak_entry_t {
 
  [Objective-C ARC: strong vs retain and weak vs assign](https://stackoverflow.com/questions/8927727/objective-c-arc-strong-vs-retain-and-weak-vs-assign/15541801#15541801)
  
- ## 10. 用 `@property` 来声明 `NSString` 或（`NSArray`、`NSDictionary`）使用 `copy` 关键字的原因？如果使用 `strong` 会怎么样？
+## 10. 用 `@property` 来声明 `NSString` 或（`NSArray`、`NSDictionary`）使用 `copy` 关键字的原因？如果使用 `strong` 会怎么样？
  
  自己曾经写过一篇文章：[从经典问题来看 Copy 方法](http://www.desgard.com/copy/)。
  
  具体原因就是深复制、浅复制的原因。
+
+
