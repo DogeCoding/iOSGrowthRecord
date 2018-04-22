@@ -1,0 +1,21 @@
+title: Hook入门
+tags: 
+- oc
+- Swift
+- Runtime
+categories: iOS
+date: 2018/4/18 19:10
+---
+
+
+> 参考:
+> 
+> - Articles
+> [动态修改 C 语言函数的实现](https://draveness.me/fishhook)
+> [iOS逆向工程之fishhook](http://www.cocoachina.com/ios/20170712/19824.html)
+> [今天开始学逆向：反汇编的利器 IDA 和 Hopper 的基本使用](https://niyaoyao.github.io/2017/01/18/Learning-Reverse-From-Today-D3/)
+> - Tools
+> [HookZzModules](https://github.com/jmpews/HookZzModules)
+> [fishhook](https://github.com/facebook/fishhook)
+> [Hopper Disassembler](https://www.hopperapp.com)
+
