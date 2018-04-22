@@ -70,14 +70,14 @@
 ### AR/VR
 [OpenCV入门教程](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/AR:VR/OpenCV入门教程.pdf)
 ### 音视频
-[https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/音视频/(干货)FFmpeg中文版.pdfFFmpeg中文版]()
+[https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/音视频/FFmpeg中文版.pdfFFmpeg中文版]()
 ### 数据库
 ### 算法
-[100题系列by_July](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/100题系列by_July.pdf)
-[超级经典算法大集合](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/超级经典算法大集合.pdf)
-[程序员面试宝典](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/程序员面试宝典(pdf清晰版).pdf)
-[剑指offer 名企面试官精讲典型编程题](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/剑指offer%20名企面试官精讲典型编程题.pdf)
-[十五个经典算法研究与总结、目录+索引](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/十五个经典算法研究与总结、目录%2B索引)
+[100题系列by_July](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/100题系列by_July.pdf)  
+[超级经典算法大集合](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/超级经典算法大集合.pdf)  
+[程序员面试宝典](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/程序员面试宝典(pdf清晰版).pdf)  
+[剑指offer 名企面试官精讲典型编程题](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/剑指offer%20名企面试官精讲典型编程题.pdf)  
+[十五个经典算法研究与总结、目录+索引](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/十五个经典算法研究与总结、目录%2B索引)  
 ### 工具
 [gitbook_notes](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/工具/gitbook_notes.pdf)
 
