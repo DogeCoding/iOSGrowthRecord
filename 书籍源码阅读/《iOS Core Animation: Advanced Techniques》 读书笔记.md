@@ -1,9 +1,4 @@
-title: 《iOS Core Animation: Advanced Techniques》 读书笔记
-tags: 
-- UI
-categories: iOS
-date: 2018/4/2 15:42
----
+# 《iOS Core Animation: Advanced Techniques》 读书笔记
 
 ## Questions:
 

@@ -1,8 +1,4 @@
-title: Git详解
-tags: Unix
-categories: Git
-date: 2018/4/16 10:53
----
+# Git详解
 
 ## 原理
 
