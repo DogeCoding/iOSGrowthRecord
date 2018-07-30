@@ -40,16 +40,60 @@
 - OpenGL多媒体
 - [客户端安全、逆向](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/进阶/客户端安全、逆向.md)
 - 测试
-- [监控体系]()
+- [监控]()
 - 机器学习
 - AR/VR
 - 大前端
 - 函数响应式编程
 
-## 优秀三方库
-### NetWork
+## 三方库
 
 ### UI
+#### Objective-c
+- [RDVTabBarController](https://github.com/robbdimitrov/RDVTabBarController)  
+带红点的tabbar。
+
+- [FDFullscreenPopGesture](https://github.com/forkingdog/FDFullscreenPopGesture)
+侧滑库。
+
+- [LayoutKit](https://github.com/linkedin/LayoutKit)
+Linkedin开源的布局框架。
+
+- [DZNEmptyDataSet](https://github.com/dzenbot/DZNEmptyDataSet)
+一键空态UI。
+
+#### Swift
+
+
+### Netwrok
+- [JSONModel](https://github.com/jsonmodel/jsonmodel)
+OC的从Json构建模型框架。
+
+
+
+### Tool
+- [FBRetainCycleDetector](https://github.com/facebook/FBRetainCycleDetector)
+Facebook开源的在runtime期间检测oc的循环引用。
+
+- [EasyReact](https://github.com/meituan/EasyReact)
+美团的响应式框架，调用栈比ReactiveCocoa少。
+
+- [FLEX](https://github.com/Flipboard/FLEX)
+调试工具。
+
+### Reverse&Security
+- [Hikari](https://github.com/HikariObfuscator/Hikari)
+混淆工具。
+
+### 底层
+- [ClangKit](https://github.com/macmade/ClangKit)
+可以调用LibClang，libclang 里面提供方法对源文件进行语法分析，分析语法树，遍历语法树上每个节点。
+
+## 开发工具
+- [MachOView](https://sourceforge.net/projects/machoview/)
+一款查看mach-o文件的软件。
+
+
 ## 书籍源码阅读
 | Project | Version | Article |
 | --- | --- | --- |
@@ -59,27 +103,8 @@
 | AsyncDisplayKit |  | [AsyncDisplayKit源码分析](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/书籍源码阅读/AsyncDisplayKit源码阅读笔记.md) |
 | Masonry |  | [Masonry源码分析](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/书籍源码阅读/Masonry%20源码分析.md) |
 
-## 资料书籍等推荐
-### 行业资讯
-- [2016中国软件开发白皮书](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/行业资讯/中国软件开发白皮书.pdf)
-- [2017 Alitech Archive_1](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/行业资讯/2017%20Alitech%20Archive_1.pdf)
-- [2017 Alitech Archive_2](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/行业资讯/2017%20Alitech%20Archive_2.pdf)
-### iOS
-### C/C++
-[深入理解 C & C++](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/C%2B%2B/深入理解%20C%20%26%20C%2B%2B_Olve%20Maudal%20%26%20Jon%20Jagger.pdf)
-### AR/VR
-[OpenCV入门教程](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/AR:VR/OpenCV入门教程.pdf)
-### 音视频
-[https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/音视频/FFmpeg中文版.pdfFFmpeg中文版]()
-### 数据库
-### 算法
-[100题系列by_July](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/100题系列by_July.pdf)  
-[超级经典算法大集合](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/超级经典算法大集合.pdf)  
-[程序员面试宝典](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/程序员面试宝典(pdf清晰版).pdf)  
-[剑指offer 名企面试官精讲典型编程题](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/剑指offer%20名企面试官精讲典型编程题.pdf)  
-[十五个经典算法研究与总结、目录+索引](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/算法/十五个经典算法研究与总结、目录%2B索引)  
-### 工具
-[gitbook_notes](https://github.com/DogeCoding/iOSGrowthRecord/blob/master/资料书籍/工具/gitbook_notes.pdf)
+## [资料书籍分享](https://1drv.ms/f/s!AsKq6CB6Leg4a3L-YDMqhpLrch8)
+
 
 ## 相关链接
 - [iOS开发周报](https://github.com/SwiftOldDriver/iOS-Weekly)
